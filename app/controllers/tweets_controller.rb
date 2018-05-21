@@ -4,9 +4,15 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
   end
+
   def new
-    @tweet = Tweet.new
+    if params[:back]
+      @tweet = Tweet.new(tweet_params)
+    else
+      @tweet = Tweet.new
+    end
   end
+
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
@@ -38,6 +44,11 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     redirect_to tweets_path, notice:"ブログを削除しました！"
+  end
+
+  def confirm
+    @tweet = Tweet.new(tweet_params)
+    render :new if @tweet.invalid?
   end
 
   private
