@@ -8,10 +8,10 @@
 <% @tweets.each do |tweet| %>
   <tr>
     <td><%= tweet.content %></td>
-    <td><%= link_to '詳細を確認する', tweet_path(tweet.id) %></td>
-    <td><%= link_to "ブログを編集する", edit_tweet_path(tweet.id) %></td>
-    <td><%= link_to 'ブログを削除する', tweet_path(tweet.id), method: :delete %></td>
+    <td><%= link_to '詳細確認', tweet_path(tweet.id), class: "btn btn-default" %></td>
+    <td><%= link_to "編集する", edit_tweet_path(tweet.id), class: "btn btn-info" %></td>
+    <td><%= link_to '削除する', tweet_path(tweet.id), method: :delete, class: "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>
-<%= link_to '新しくブログを投稿する', new_tweet_path %>
+<%= link_to '新規投稿', new_tweet_path, class: "btn btn-default" %>

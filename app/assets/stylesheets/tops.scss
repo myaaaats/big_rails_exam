@@ -39,6 +39,11 @@ footer {
   bottom: 0;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -46,4 +51,5 @@ html {
 
 body {
   text-align: center;
+  background-color: #FFE4B5;
 }
