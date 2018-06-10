@@ -25,15 +25,15 @@ class TweetsController < ApplicationController
   end
 
   def show
-     @tweet = Tweet.find(params[:id])
+#    @tweet = Tweet.find(params[:id])
   end
 
   def edit
-    @tweet = Tweet.find(params[:id])
+#    @tweet = Tweet.find(params[:id])
   end
 
   def update
-    @tweet = Tweet.find(params[:id])
+#    @tweet = Tweet.find(params[:id])
     if @tweet.update(tweet_params)
       redirect_to tweets_path, notice: "ブログを編集しました！"
     else
