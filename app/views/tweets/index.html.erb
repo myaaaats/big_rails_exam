@@ -8,16 +8,11 @@
 <div class="row">
   <% @tweets.each do |tweet| %>
     <div class="col-xs-12 col-md-6">
-      <table>
-        <tr>
-          <td><%= tweet.content %></td>
-        </tr>
-        <tr>
-          <td><%= link_to '詳細確認', tweet_path(tweet.id), class: "btn btn-default" %></td>
-          <td class="exam"><%= link_to "編集する", edit_tweet_path(tweet.id), class: "btn btn-info" %></td>
-          <td class="exam"><%= link_to '削除する', tweet_path(tweet.id), method: :delete, class: "btn btn-danger" %></td>
-        </tr>
-      </table>
+      <%= tweet.content %>
+      <br>
+      <%= link_to '詳細確認', tweet_path(tweet.id), class: "btn btn-default" %>
+      <%= link_to "編集する", edit_tweet_path(tweet.id), class: "btn btn-info" %>
+      <%= link_to '削除する', tweet_path(tweet.id), method: :delete, class: "btn btn-danger" %>
     </div>
   <% end %>
 </div>
