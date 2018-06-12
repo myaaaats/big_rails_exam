@@ -14,10 +14,21 @@
         <li><%= link_to "HOME", tops_path %></li>
         <li><%= link_to "つぶやき一覧", tweets_path %></li>
         <li><%= link_to "新規投稿", new_tweet_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Profile", user_path(current_user.id) %></li>
+          <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Login", new_session_path %></li>
+        <% end %>
       </ul>
     </header>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+
     <%= yield %>
-      <footer>
+    <footer>
         <p>運営会社DIVE INTO CODE株式会社</p>
         <p>© 2015-2016 Copyright DIVE INTO CODE Corp.</p>
     </footer>
