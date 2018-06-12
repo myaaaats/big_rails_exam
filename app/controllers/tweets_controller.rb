@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :login, only: [:new, :edit, :show, :destroy]
 
   def index
     @tweets = Tweet.all
@@ -59,5 +60,9 @@ class TweetsController < ApplicationController
     # idをキーとして値を取得するメソッド
     def set_tweet
       @tweet = Tweet.find(params[:id])
+    end
+
+    def login
+      redirect_to new_user_path unless logged_in?
     end
 end
