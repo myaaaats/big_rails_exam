@@ -16,6 +16,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
+    @tweet.user_id = current_user.id
     if @tweet.save
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
       redirect_to tweets_path, notice: "ブログを作成しました！"
@@ -27,6 +28,8 @@ class TweetsController < ApplicationController
 
   def show
 #    @tweet = Tweet.find(params[:id])
+    @tweet.user_id = current_user.id
+    @favorite = current_user.favorites.find_by(tweet_id: @tweet.id)
   end
 
   def edit
