@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
 
   def show
 #    @tweet = Tweet.find(params[:id])
-    @tweet.user_id = current_user.id
+#    @tweet.user_id = current_user.id
     @favorite = current_user.favorites.find_by(tweet_id: @tweet.id)
   end
 
@@ -52,6 +52,7 @@ class TweetsController < ApplicationController
 
   def confirm
     @tweet = Tweet.new(tweet_params)
+    @tweet.user_id = current_user.id
     render :new if @tweet.invalid?
   end
 
