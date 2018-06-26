@@ -3,10 +3,6 @@
 <p>メールアドレス: <%= @user.email %></p>
 
 <h2>あなたのお気に入りしたツイート</h2>
-<% @user.favorites.each do |favorite| %>
-  <%= favorite.tweet.content %>
-  <br>
-<% end %>
 
 <% @user.favorite_tweets.each do |favorite| %>
   <%= favorite.content %>
