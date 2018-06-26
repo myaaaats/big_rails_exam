@@ -10,8 +10,10 @@
       <%= tweet.content %>
       <br>
       <%= link_to '詳細確認', tweet_path(tweet.id), class: "btn btn-default" %>
-      <%= link_to "編集する", edit_tweet_path(tweet.id), class: "btn btn-info" %>
-      <%= link_to '削除する', tweet_path(tweet.id), method: :delete, class: "btn btn-danger" %>
+      <% if current_user.id == tweet.user_id %>
+        <%= link_to "編集する", edit_tweet_path(tweet.id), class: "btn btn-info" %>
+        <%= link_to '削除する', tweet_path(tweet.id), method: :delete, class: "btn btn-danger" %>
+      <% end %>
     </div>
   <% end %>
 </div>
