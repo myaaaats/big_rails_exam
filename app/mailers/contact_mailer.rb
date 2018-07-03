@@ -1,7 +1,7 @@
 class ContactMailer < ApplicationMailer
-  def contact_mail(tweet)
+  def contact_mail(current_user_email,tweet)
     @tweet = tweet
 
-    mail to: "maya_sato@diveintocode.jp", subject: "お問い合わせの確認メール"
+    mail to: current_user_email, subject: "お問い合わせの確認メール"
   end
 end
