@@ -18,6 +18,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     if @tweet.save
+      ContactMailer.contact_mail(@tweet).deliver
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
       redirect_to tweets_path, notice: "ブログを作成しました！"
     else
