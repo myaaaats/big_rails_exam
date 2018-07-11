@@ -14,6 +14,8 @@
   <div class="tweet_title">
     <%= form.label :content %>
     <%= form.text_field :content %>
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :feed_image %>
   </div>
   <%= form.submit %>
 <% end %>

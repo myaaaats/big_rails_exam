@@ -60,7 +60,7 @@ class TweetsController < ApplicationController
 
   private
     def tweet_params
-      params.require(:tweet).permit(:content)
+      params.require(:tweet).permit(:content, :image, :image_cache)
     end
 
     # idをキーとして値を取得するメソッド

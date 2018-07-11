@@ -8,6 +8,10 @@
   <% @tweets.each do |tweet| %>
     <div class="col-xs-12 col-md-6">
       <%= tweet.content %>
+      <p>
+        <strong>Image:</strong>
+        <%= image_tag tweet.image %>
+      </p>
       <br>
       <%= link_to '詳細確認', tweet_path(tweet.id), class: "btn btn-default" %>
       <% if current_user.id == tweet.user_id %>
